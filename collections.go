@@ -8,7 +8,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/moneymatchgg/postman-client/gen/types"
+	"github.com/actatum/postman-client/gen/types"
 )
 
 // Collection represents a postman collection.
