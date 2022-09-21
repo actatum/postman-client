@@ -49,15 +49,21 @@ func doRequest(r *http.Request, apiKey string, httpClient *http.Client, opts ...
 	}
 	defer resp.Body.Close()
 
+	data, err = io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+
 	fmt.Printf("Status: %d\n", resp.StatusCode)
+	fmt.Printf("Result: \n%s\n", string(data))
 	if resp.StatusCode >= http.StatusBadRequest {
-		var postmanError Error
-		if err = json.NewDecoder(resp.Body).Decode(&postmanError); err != nil {
+		var wrapper errorWrapper
+		if err = json.Unmarshal(data, &wrapper); err != nil {
 			return nil, err
 		}
 
-		return nil, postmanError
+		return nil, wrapper.Error
 	}
 
-	return io.ReadAll(resp.Body)
+	return data, nil
 }

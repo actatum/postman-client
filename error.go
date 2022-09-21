@@ -2,6 +2,10 @@ package postman
 
 import "fmt"
 
+type errorWrapper struct {
+	Error Error `json:"error"`
+}
+
 // Error represents an error from the postman api.
 type Error struct {
 	Name    string            `json:"name"`
