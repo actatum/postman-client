@@ -24,7 +24,11 @@ func NewAuditLogsClient(apiKey string, httpClient *http.Client) *AuditLogsClient
 	}
 }
 
-func (c *AuditLogsClient) Get(ctx context.Context, req GetAuditLogsRequest, opts ...RequestOption) (GetAuditLogsResponse, error) {
+func (c *AuditLogsClient) Get(
+	ctx context.Context,
+	req GetAuditLogsRequest,
+	opts ...RequestOption,
+) (GetAuditLogsResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodGet, c.baseURL, nil)
 	if err != nil {
 		return GetAuditLogsResponse{}, err

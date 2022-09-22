@@ -23,7 +23,11 @@ func NewAPISecurityClient(apiKey string, httpClient *http.Client) *APISecurityCl
 	}
 }
 
-func (c *APISecurityClient) ValidateSchema(ctx context.Context, req APISecuritySchemaValidationRequest, opts ...RequestOption) (APISecuritySchemaValidationResponse, error) {
+func (c *APISecurityClient) ValidateSchema(
+	ctx context.Context,
+	req APISecuritySchemaValidationRequest,
+	opts ...RequestOption,
+) (APISecuritySchemaValidationResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return APISecuritySchemaValidationResponse{}, err
@@ -32,7 +36,11 @@ func (c *APISecurityClient) ValidateSchema(ctx context.Context, req APISecurityS
 	return c.ValidateSchemaWithJSON(ctx, data, opts...)
 }
 
-func (c *APISecurityClient) ValidateSchemaWithJSON(ctx context.Context, jsonData []byte, opts ...RequestOption) (APISecuritySchemaValidationResponse, error) {
+func (c *APISecurityClient) ValidateSchemaWithJSON(
+	ctx context.Context,
+	jsonData []byte,
+	opts ...RequestOption,
+) (APISecuritySchemaValidationResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL+"/api-validation", bytes.NewBuffer(jsonData))
 	if err != nil {
 		return APISecuritySchemaValidationResponse{}, err

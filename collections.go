@@ -24,7 +24,11 @@ func NewCollectionsClient(apiKey string, httpClient *http.Client) *CollectionsCl
 	}
 }
 
-func (c *CollectionsClient) Create(ctx context.Context, req CreateCollectionRequest, opts ...RequestOption) (CreateCollectionResponse, error) {
+func (c *CollectionsClient) Create(
+	ctx context.Context,
+	req CreateCollectionRequest,
+	opts ...RequestOption,
+) (CreateCollectionResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return CreateCollectionResponse{}, err
@@ -33,7 +37,11 @@ func (c *CollectionsClient) Create(ctx context.Context, req CreateCollectionRequ
 	return c.CreateWithJSON(ctx, data, opts...)
 }
 
-func (c *CollectionsClient) CreateWithJSON(ctx context.Context, jsonData []byte, opts ...RequestOption) (CreateCollectionResponse, error) {
+func (c *CollectionsClient) CreateWithJSON(
+	ctx context.Context,
+	jsonData []byte,
+	opts ...RequestOption,
+) (CreateCollectionResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return CreateCollectionResponse{}, err
@@ -50,7 +58,11 @@ func (c *CollectionsClient) CreateWithJSON(ctx context.Context, jsonData []byte,
 	return response, err
 }
 
-func (c *CollectionsClient) Get(ctx context.Context, uid string, opts ...RequestOption) (GetCollectionResponse, error) {
+func (c *CollectionsClient) Get(
+	ctx context.Context,
+	uid string,
+	opts ...RequestOption,
+) (GetCollectionResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodGet, c.baseURL+"/"+uid, nil)
 	if err != nil {
 		return GetCollectionResponse{}, err
@@ -67,7 +79,10 @@ func (c *CollectionsClient) Get(ctx context.Context, uid string, opts ...Request
 	return response, err
 }
 
-func (c *CollectionsClient) GetAll(ctx context.Context, opts ...RequestOption) (GetAllCollectionsResponse, error) {
+func (c *CollectionsClient) GetAll(
+	ctx context.Context,
+	opts ...RequestOption,
+) (GetAllCollectionsResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodGet, c.baseURL, nil)
 	if err != nil {
 		return GetAllCollectionsResponse{}, err
@@ -84,7 +99,12 @@ func (c *CollectionsClient) GetAll(ctx context.Context, opts ...RequestOption) (
 	return response, err
 }
 
-func (c *CollectionsClient) Update(ctx context.Context, uid string, req UpdateCollectionRequest, opts ...RequestOption) (UpdateCollectionResponse, error) {
+func (c *CollectionsClient) Update(
+	ctx context.Context,
+	uid string,
+	req UpdateCollectionRequest,
+	opts ...RequestOption,
+) (UpdateCollectionResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return UpdateCollectionResponse{}, err
@@ -93,7 +113,12 @@ func (c *CollectionsClient) Update(ctx context.Context, uid string, req UpdateCo
 	return c.UpdateWithJSON(ctx, uid, data, opts...)
 }
 
-func (c *CollectionsClient) UpdateWithJSON(ctx context.Context, uid string, jsonData []byte, opts ...RequestOption) (UpdateCollectionResponse, error) {
+func (c *CollectionsClient) UpdateWithJSON(
+	ctx context.Context,
+	uid string,
+	jsonData []byte,
+	opts ...RequestOption,
+) (UpdateCollectionResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL+"/"+uid, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return UpdateCollectionResponse{}, err
@@ -110,7 +135,11 @@ func (c *CollectionsClient) UpdateWithJSON(ctx context.Context, uid string, json
 	return response, err
 }
 
-func (c *CollectionsClient) Delete(ctx context.Context, uid string, opts ...RequestOption) (DeleteCollectionResponse, error) {
+func (c *CollectionsClient) Delete(
+	ctx context.Context,
+	uid string,
+	opts ...RequestOption,
+) (DeleteCollectionResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodDelete, c.baseURL+"/"+uid, nil)
 	if err != nil {
 		return DeleteCollectionResponse{}, err
@@ -127,7 +156,12 @@ func (c *CollectionsClient) Delete(ctx context.Context, uid string, opts ...Requ
 	return response, err
 }
 
-func (c *CollectionsClient) Fork(ctx context.Context, uid string, req CreateForkRequest, opts ...RequestOption) (CreateForkResponse, error) {
+func (c *CollectionsClient) Fork(
+	ctx context.Context,
+	uid string,
+	req CreateForkRequest,
+	opts ...RequestOption,
+) (CreateForkResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return CreateForkResponse{}, err
@@ -135,7 +169,12 @@ func (c *CollectionsClient) Fork(ctx context.Context, uid string, req CreateFork
 
 	return c.ForkWithJSON(ctx, uid, data, opts...)
 }
-func (c *CollectionsClient) ForkWithJSON(ctx context.Context, uid string, jsonData []byte, opts ...RequestOption) (CreateForkResponse, error) {
+func (c *CollectionsClient) ForkWithJSON(
+	ctx context.Context,
+	uid string,
+	jsonData []byte,
+	opts ...RequestOption,
+) (CreateForkResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL+"/fork/"+uid, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return CreateForkResponse{}, err
@@ -152,7 +191,11 @@ func (c *CollectionsClient) ForkWithJSON(ctx context.Context, uid string, jsonDa
 	return response, err
 }
 
-func (c *CollectionsClient) MergeFork(ctx context.Context, req MergeForkRequest, opts ...RequestOption) (MergeForkResponse, error) {
+func (c *CollectionsClient) MergeFork(
+	ctx context.Context,
+	req MergeForkRequest,
+	opts ...RequestOption,
+) (MergeForkResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return MergeForkResponse{}, err
@@ -161,7 +204,11 @@ func (c *CollectionsClient) MergeFork(ctx context.Context, req MergeForkRequest,
 	return c.MergeForkWithJSON(ctx, data, opts...)
 }
 
-func (c *CollectionsClient) MergeForkWithJSON(ctx context.Context, jsonData []byte, opts ...RequestOption) (MergeForkResponse, error) {
+func (c *CollectionsClient) MergeForkWithJSON(
+	ctx context.Context,
+	jsonData []byte,
+	opts ...RequestOption,
+) (MergeForkResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL+"/merge", bytes.NewBuffer(jsonData))
 	if err != nil {
 		return MergeForkResponse{}, err
