@@ -26,7 +26,12 @@ func WithWorkspace(w string) RequestOption {
 	return workspaceOption(w)
 }
 
-func doRequest(r *http.Request, apiKey string, httpClient *http.Client, opts ...RequestOption) (data []byte, err error) {
+func doRequest(
+	r *http.Request,
+	apiKey string,
+	httpClient *http.Client,
+	opts ...RequestOption,
+) (data []byte, err error) {
 	options := requestOptions{}
 
 	for _, o := range opts {

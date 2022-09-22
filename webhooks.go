@@ -23,7 +23,11 @@ func NewWebhooksClient(apiKey string, httpClient *http.Client) *WebhooksClient {
 	}
 }
 
-func (c *WebhooksClient) Create(ctx context.Context, req CreateWebhookRequest, opts ...RequestOption) (CreateWebhookResponse, error) {
+func (c *WebhooksClient) Create(
+	ctx context.Context,
+	req CreateWebhookRequest,
+	opts ...RequestOption,
+) (CreateWebhookResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return CreateWebhookResponse{}, err
@@ -32,7 +36,11 @@ func (c *WebhooksClient) Create(ctx context.Context, req CreateWebhookRequest, o
 	return c.CreateWithJSON(ctx, data, opts...)
 }
 
-func (c *WebhooksClient) CreateWithJSON(ctx context.Context, jsonData []byte, opts ...RequestOption) (CreateWebhookResponse, error) {
+func (c *WebhooksClient) CreateWithJSON(
+	ctx context.Context,
+	jsonData []byte,
+	opts ...RequestOption,
+) (CreateWebhookResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return CreateWebhookResponse{}, err

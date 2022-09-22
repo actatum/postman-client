@@ -57,8 +57,9 @@ var validateSchemaSuccessResponse = APISecuritySchemaValidationResponse{
 					Column: 1118,
 				},
 			},
-			DataPath:       []string{"components", "securitySchemes", "BasicAuth", "scheme"},
-			PossibleFixUrl: "https://go.pstmn.io/openapi3-security-warnings#http-authentication-scheme-is-using-an-unknown-scheme",
+			DataPath: []string{"components", "securitySchemes", "BasicAuth", "scheme"},
+			PossibleFixUrl: `https://go.pstmn.io/
+openapi3-security-warnings#http-authentication-scheme-is-using-an-unknown-scheme`,
 			Category: struct {
 				Name string `json:"name"`
 			}{
@@ -96,7 +97,28 @@ func TestAPISecurityClient_ValidateSchema(t *testing.T) {
 						Type     string `json:"type"`
 						Language string `json:"language"`
 						Schema   string `json:"schema"`
-					}{Type: "openapi3", Language: "json", Schema: "{\"openapi\":\"3.0.0\",\"info\":{\"version\":\"1\",\"title\":\"temp\",\"license\":{\"name\":\"MIT\"}},\"servers\":[{\"url\":\"https://petstore.swagger.io/v1\"}],\"paths\":{\"/user\":{\"get\":{\"summary\":\"Details about a user\",\"operationId\":\"listUser\",\"tags\":[\"user\"],\"parameters\":[{\"name\":\"id\",\"in\":\"query\",\"description\":\"ID of the user\",\"required\":true,\"schema\":{\"type\":\"integer\",\"format\":\"int32\"}}],\"responses\":{\"200\":{\"description\":\"Details about a user\",\"headers\":{\"x-next\":{\"description\":\"A link to the next page of responses\",\"schema\":{\"type\":\"string\"}}},\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/User\"}}}},\"default\":{\"description\":\"unexpected error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/Error\"}}}}}}}},\"components\":{\"schemas\":{\"User\":{\"type\":\"object\",\"required\":[\"id\",\"name\"],\"properties\":{\"id\":{\"type\":\"integer\",\"format\":\"int64\"},\"name\":{\"type\":\"string\"},\"tag\":{\"type\":\"string\"}}},\"Error\":{\"type\":\"object\",\"required\":[\"code\",\"message\"],\"properties\":{\"code\":{\"type\":\"integer\",\"format\":\"int32\"},\"message\":{\"type\":\"string\"}}}},\"securitySchemes\":{\"BasicAuth\":{\"type\":\"http\",\"scheme\":\"\"}}},\"security\":[{\"BasicAuth\":[]}]}"},
+					}{
+						Type:     "openapi3",
+						Language: "json",
+						Schema: `{\"openapi\":\"3.0.0\",
+\"info\":{\"version\":\"1\",\"title\":\"temp\",\"license\":{\"name\":\"MIT\"}},
+\"servers\":[{\"url\":\"https://petstore.swagger.io/v1\"}],\"paths\":{\"/user\"
+:{\"get\":{\"summary\":\"Details about a user\",\"operationId\":\"listUser\",\"
+tags\":[\"user\"],\"parameters\":[{\"name\":\"id\",\"in\":\"query\",\"descripti
+on\":\"ID of the user\",\"required\":true,\"schema\":{\"type\":\"integer\",\"fo
+rmat\":\"int32\"}}],\"responses\":{\"200\":{\"description\":\"Details about a u
+ser\",\"headers\":{\"x-next\":{\"description\":\"A link to the next page of res
+ponses\",\"schema\":{\"type\":\"string\"}}},\"content\":{\"application/json\":{
+\"schema\":{\"$ref\":\"#/components/schemas/User\"}}}},\"default\":{\"descripti
+on\":\"unexpected error\",\"content\":{\"application/json\":{\"schema\":{\"$ref
+\":\"#/components/schemas/Error\"}}}}}}}},\"components\":{\"schemas\":{\"User\"
+:{\"type\":\"object\",\"required\":[\"id\",\"name\"],\"properties\":{\"id\":{\"
+type\":\"integer\",\"format\":\"int64\"},\"name\":{\"type\":\"string\"},\"tag\"
+:{\"type\":\"string\"}}},\"Error\":{\"type\":\"object\",\"required\":[\"code\",
+\"message\"],\"properties\":{\"code\":{\"type\":\"integer\",\"format\":\"int32\
+"},\"message\":{\"type\":\"string\"}}}},\"securitySchemes\":{\"BasicAuth\":{\"t
+ype\":\"http\",\"scheme\":\"\"}}},\"security\":[{\"BasicAuth\":[]}]}`,
+					},
 				},
 				opts: nil,
 			},

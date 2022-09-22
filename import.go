@@ -26,7 +26,11 @@ func NewImportClient(apiKey string, httpClient *http.Client) *ImportClient {
 	}
 }
 
-func (c *ImportClient) OpenAPIJSON(ctx context.Context, req ImportOpenAPIJSONRequest, opts ...RequestOption) (ImportOpenAPIResponse, error) {
+func (c *ImportClient) OpenAPIJSON(
+	ctx context.Context,
+	req ImportOpenAPIJSONRequest,
+	opts ...RequestOption,
+) (ImportOpenAPIResponse, error) {
 	req.Type = "json"
 	data, err := json.Marshal(req)
 	if err != nil {
@@ -49,7 +53,11 @@ func (c *ImportClient) OpenAPIJSON(ctx context.Context, req ImportOpenAPIJSONReq
 	return response, err
 }
 
-func (c *ImportClient) OpenAPIStringified(ctx context.Context, req ImportOpenAPIStringifiedRequest, opts ...RequestOption) (ImportOpenAPIResponse, error) {
+func (c *ImportClient) OpenAPIStringified(
+	ctx context.Context,
+	req ImportOpenAPIStringifiedRequest,
+	opts ...RequestOption,
+) (ImportOpenAPIResponse, error) {
 	req.Type = "string"
 	data, err := json.Marshal(req)
 	if err != nil {
@@ -72,7 +80,12 @@ func (c *ImportClient) OpenAPIStringified(ctx context.Context, req ImportOpenAPI
 	return response, err
 }
 
-func (c *ImportClient) OpenAPIFile(ctx context.Context, fileName string, file io.Reader, opts ...RequestOption) (ImportOpenAPIResponse, error) {
+func (c *ImportClient) OpenAPIFile(
+	ctx context.Context,
+	fileName string,
+	file io.Reader,
+	opts ...RequestOption,
+) (ImportOpenAPIResponse, error) {
 	buf := &bytes.Buffer{}
 	w := multipart.NewWriter(buf)
 	fw, err := w.CreateFormFile("input", fileName)
@@ -109,7 +122,12 @@ func (c *ImportClient) OpenAPIFile(ctx context.Context, fileName string, file io
 	return response, err
 }
 
-func (c *ImportClient) Exported(ctx context.Context, fileName string, file io.Reader, opts ...RequestOption) (ImportExportedResponse, error) {
+func (c *ImportClient) Exported(
+	ctx context.Context,
+	fileName string,
+	file io.Reader,
+	opts ...RequestOption,
+) (ImportExportedResponse, error) {
 	buf := &bytes.Buffer{}
 	w := multipart.NewWriter(buf)
 	fw, err := w.CreateFormFile("input", fileName)

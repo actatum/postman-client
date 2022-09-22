@@ -24,7 +24,11 @@ func NewEnvironmentsClient(apiKey string, httpClient *http.Client) *Environments
 	}
 }
 
-func (c *EnvironmentsClient) Create(ctx context.Context, req CreateEnvironmentRequest, opts ...RequestOption) (CreateEnvironmentResponse, error) {
+func (c *EnvironmentsClient) Create(
+	ctx context.Context,
+	req CreateEnvironmentRequest,
+	opts ...RequestOption,
+) (CreateEnvironmentResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return CreateEnvironmentResponse{}, err
@@ -33,7 +37,11 @@ func (c *EnvironmentsClient) Create(ctx context.Context, req CreateEnvironmentRe
 	return c.CreateWithJSON(ctx, data, opts...)
 }
 
-func (c *EnvironmentsClient) CreateWithJSON(ctx context.Context, jsonData []byte, opts ...RequestOption) (CreateEnvironmentResponse, error) {
+func (c *EnvironmentsClient) CreateWithJSON(
+	ctx context.Context,
+	jsonData []byte,
+	opts ...RequestOption,
+) (CreateEnvironmentResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return CreateEnvironmentResponse{}, err
@@ -50,7 +58,11 @@ func (c *EnvironmentsClient) CreateWithJSON(ctx context.Context, jsonData []byte
 	return response, err
 }
 
-func (c *EnvironmentsClient) Get(ctx context.Context, uid string, opts ...RequestOption) (GetEnvironmentResponse, error) {
+func (c *EnvironmentsClient) Get(
+	ctx context.Context,
+	uid string,
+	opts ...RequestOption,
+) (GetEnvironmentResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodGet, c.baseURL+"/"+uid, nil)
 	if err != nil {
 		return GetEnvironmentResponse{}, err
@@ -67,7 +79,10 @@ func (c *EnvironmentsClient) Get(ctx context.Context, uid string, opts ...Reques
 	return response, err
 }
 
-func (c *EnvironmentsClient) GetAll(ctx context.Context, opts ...RequestOption) (GetAllEnvironmentsResponse, error) {
+func (c *EnvironmentsClient) GetAll(
+	ctx context.Context,
+	opts ...RequestOption,
+) (GetAllEnvironmentsResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodGet, c.baseURL, nil)
 	if err != nil {
 		return GetAllEnvironmentsResponse{}, err
@@ -84,7 +99,11 @@ func (c *EnvironmentsClient) GetAll(ctx context.Context, opts ...RequestOption) 
 	return response, err
 }
 
-func (c *EnvironmentsClient) Update(ctx context.Context, req UpdateEnvironmentRequest, opts ...RequestOption) (UpdateEnvironmentResponse, error) {
+func (c *EnvironmentsClient) Update(
+	ctx context.Context,
+	req UpdateEnvironmentRequest,
+	opts ...RequestOption,
+) (UpdateEnvironmentResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return UpdateEnvironmentResponse{}, err
@@ -93,7 +112,11 @@ func (c *EnvironmentsClient) Update(ctx context.Context, req UpdateEnvironmentRe
 	return c.UpdateWithJSON(ctx, data, opts...)
 }
 
-func (c *EnvironmentsClient) UpdateWithJSON(ctx context.Context, jsonData []byte, opts ...RequestOption) (UpdateEnvironmentResponse, error) {
+func (c *EnvironmentsClient) UpdateWithJSON(
+	ctx context.Context,
+	jsonData []byte,
+	opts ...RequestOption,
+) (UpdateEnvironmentResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPut, c.baseURL, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return UpdateEnvironmentResponse{}, err
@@ -110,7 +133,11 @@ func (c *EnvironmentsClient) UpdateWithJSON(ctx context.Context, jsonData []byte
 	return response, err
 }
 
-func (c *EnvironmentsClient) Delete(ctx context.Context, uid string, opts ...RequestOption) (DeleteEnvironmentResponse, error) {
+func (c *EnvironmentsClient) Delete(
+	ctx context.Context,
+	uid string,
+	opts ...RequestOption,
+) (DeleteEnvironmentResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodDelete, c.baseURL+"/"+uid, nil)
 	if err != nil {
 		return DeleteEnvironmentResponse{}, err

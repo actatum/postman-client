@@ -24,7 +24,11 @@ func NewWorkspacesClient(apiKey string, httpClient *http.Client) *WorkspacesClie
 	}
 }
 
-func (c *WorkspacesClient) Create(ctx context.Context, req CreateWorkspaceRequest, opts ...RequestOption) (CreateWorkspaceResponse, error) {
+func (c *WorkspacesClient) Create(
+	ctx context.Context,
+	req CreateWorkspaceRequest,
+	opts ...RequestOption,
+) (CreateWorkspaceResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return CreateWorkspaceResponse{}, err
@@ -33,7 +37,11 @@ func (c *WorkspacesClient) Create(ctx context.Context, req CreateWorkspaceReques
 	return c.CreateWithJSON(ctx, data, opts...)
 }
 
-func (c *WorkspacesClient) CreateWithJSON(ctx context.Context, jsonData []byte, opts ...RequestOption) (CreateWorkspaceResponse, error) {
+func (c *WorkspacesClient) CreateWithJSON(
+	ctx context.Context,
+	jsonData []byte,
+	opts ...RequestOption,
+) (CreateWorkspaceResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return CreateWorkspaceResponse{}, err
@@ -50,7 +58,11 @@ func (c *WorkspacesClient) CreateWithJSON(ctx context.Context, jsonData []byte, 
 	return response, err
 }
 
-func (c *WorkspacesClient) Get(ctx context.Context, id string, opts ...RequestOption) (GetWorkspaceResponse, error) {
+func (c *WorkspacesClient) Get(
+	ctx context.Context,
+	id string,
+	opts ...RequestOption,
+) (GetWorkspaceResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodGet, c.baseURL+"/"+id, nil)
 	if err != nil {
 		return GetWorkspaceResponse{}, err
@@ -67,7 +79,10 @@ func (c *WorkspacesClient) Get(ctx context.Context, id string, opts ...RequestOp
 	return response, err
 }
 
-func (c *WorkspacesClient) GetAll(ctx context.Context, opts ...RequestOption) (GetAllWorkspacesResponse, error) {
+func (c *WorkspacesClient) GetAll(
+	ctx context.Context,
+	opts ...RequestOption,
+) (GetAllWorkspacesResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodGet, c.baseURL, nil)
 	if err != nil {
 		return GetAllWorkspacesResponse{}, err
@@ -84,7 +99,12 @@ func (c *WorkspacesClient) GetAll(ctx context.Context, opts ...RequestOption) (G
 	return response, err
 }
 
-func (c *WorkspacesClient) Update(ctx context.Context, id string, req UpdateWorkspaceRequest, opts ...RequestOption) (UpdateWorkspaceResponse, error) {
+func (c *WorkspacesClient) Update(
+	ctx context.Context,
+	id string,
+	req UpdateWorkspaceRequest,
+	opts ...RequestOption,
+) (UpdateWorkspaceResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return UpdateWorkspaceResponse{}, err
@@ -93,7 +113,12 @@ func (c *WorkspacesClient) Update(ctx context.Context, id string, req UpdateWork
 	return c.UpdateWithJSON(ctx, id, data, opts...)
 }
 
-func (c *WorkspacesClient) UpdateWithJSON(ctx context.Context, id string, jsonData []byte, opts ...RequestOption) (UpdateWorkspaceResponse, error) {
+func (c *WorkspacesClient) UpdateWithJSON(
+	ctx context.Context,
+	id string,
+	jsonData []byte,
+	opts ...RequestOption,
+) (UpdateWorkspaceResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPut, c.baseURL+"/"+id, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return UpdateWorkspaceResponse{}, err
@@ -110,7 +135,11 @@ func (c *WorkspacesClient) UpdateWithJSON(ctx context.Context, id string, jsonDa
 	return response, err
 }
 
-func (c *WorkspacesClient) Delete(ctx context.Context, id string, opts ...RequestOption) (DeleteWorkspaceResponse, error) {
+func (c *WorkspacesClient) Delete(
+	ctx context.Context,
+	id string,
+	opts ...RequestOption,
+) (DeleteWorkspaceResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodDelete, c.baseURL+"/"+id, nil)
 	if err != nil {
 		return DeleteWorkspaceResponse{}, err

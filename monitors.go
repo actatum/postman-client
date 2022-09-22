@@ -24,7 +24,11 @@ func NewMonitorsClient(apiKey string, httpClient *http.Client) *MonitorsClient {
 	}
 }
 
-func (c *MonitorsClient) Create(ctx context.Context, req CreateMonitorRequest, opts ...RequestOption) (CreateMonitorResponse, error) {
+func (c *MonitorsClient) Create(
+	ctx context.Context,
+	req CreateMonitorRequest,
+	opts ...RequestOption,
+) (CreateMonitorResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return CreateMonitorResponse{}, err
@@ -33,7 +37,11 @@ func (c *MonitorsClient) Create(ctx context.Context, req CreateMonitorRequest, o
 	return c.CreateWithJSON(ctx, data, opts...)
 }
 
-func (c *MonitorsClient) CreateWithJSON(ctx context.Context, jsonData []byte, opts ...RequestOption) (CreateMonitorResponse, error) {
+func (c *MonitorsClient) CreateWithJSON(
+	ctx context.Context,
+	jsonData []byte,
+	opts ...RequestOption,
+) (CreateMonitorResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return CreateMonitorResponse{}, err
@@ -50,7 +58,11 @@ func (c *MonitorsClient) CreateWithJSON(ctx context.Context, jsonData []byte, op
 	return response, err
 }
 
-func (c *MonitorsClient) Get(ctx context.Context, uid string, opts ...RequestOption) (GetMonitorResponse, error) {
+func (c *MonitorsClient) Get(
+	ctx context.Context,
+	uid string,
+	opts ...RequestOption,
+) (GetMonitorResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodGet, c.baseURL+"/"+uid, nil)
 	if err != nil {
 		return GetMonitorResponse{}, err
@@ -67,7 +79,10 @@ func (c *MonitorsClient) Get(ctx context.Context, uid string, opts ...RequestOpt
 	return response, err
 }
 
-func (c *MonitorsClient) GetAll(ctx context.Context, opts ...RequestOption) (GetAllMonitorsResponse, error) {
+func (c *MonitorsClient) GetAll(
+	ctx context.Context,
+	opts ...RequestOption,
+) (GetAllMonitorsResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodGet, c.baseURL, nil)
 	if err != nil {
 		return GetAllMonitorsResponse{}, err
@@ -84,7 +99,12 @@ func (c *MonitorsClient) GetAll(ctx context.Context, opts ...RequestOption) (Get
 	return response, err
 }
 
-func (c *MonitorsClient) Update(ctx context.Context, uid string, req UpdateMonitorRequest, opts ...RequestOption) (UpdateMonitorResponse, error) {
+func (c *MonitorsClient) Update(
+	ctx context.Context,
+	uid string,
+	req UpdateMonitorRequest,
+	opts ...RequestOption,
+) (UpdateMonitorResponse, error) {
 	data, err := json.Marshal(req)
 	if err != nil {
 		return UpdateMonitorResponse{}, err
@@ -93,7 +113,12 @@ func (c *MonitorsClient) Update(ctx context.Context, uid string, req UpdateMonit
 	return c.UpdateWithJSON(ctx, uid, data, opts...)
 }
 
-func (c *MonitorsClient) UpdateWithJSON(ctx context.Context, uid string, jsonData []byte, opts ...RequestOption) (UpdateMonitorResponse, error) {
+func (c *MonitorsClient) UpdateWithJSON(
+	ctx context.Context,
+	uid string,
+	jsonData []byte,
+	opts ...RequestOption,
+) (UpdateMonitorResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPut, c.baseURL+"/"+uid, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return UpdateMonitorResponse{}, err
@@ -110,7 +135,11 @@ func (c *MonitorsClient) UpdateWithJSON(ctx context.Context, uid string, jsonDat
 	return response, err
 }
 
-func (c *MonitorsClient) Delete(ctx context.Context, uid string, opts ...RequestOption) (DeleteMonitorResponse, error) {
+func (c *MonitorsClient) Delete(
+	ctx context.Context,
+	uid string,
+	opts ...RequestOption,
+) (DeleteMonitorResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodDelete, c.baseURL+"/"+uid, nil)
 	if err != nil {
 		return DeleteMonitorResponse{}, err
@@ -127,7 +156,11 @@ func (c *MonitorsClient) Delete(ctx context.Context, uid string, opts ...Request
 	return response, err
 }
 
-func (c *MonitorsClient) Run(ctx context.Context, uid string, opts ...RequestOption) (RunMonitorResponse, error) {
+func (c *MonitorsClient) Run(
+	ctx context.Context,
+	uid string,
+	opts ...RequestOption,
+) (RunMonitorResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL+"/"+uid+"/run", nil)
 	if err != nil {
 		return RunMonitorResponse{}, err

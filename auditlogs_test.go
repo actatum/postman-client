@@ -39,9 +39,10 @@ var getAuditLogsSuccessResponse = GetAuditLogsResponse{
 		} `json:"data"`
 	}{
 		{
-			Id:        12345678,
-			Ip:        "192.0.2.0",
-			UserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+			Id: 12345678,
+			Ip: "192.0.2.0",
+			UserAgent: `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) 
+AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36`,
 			Action:    "user.login_google_success",
 			Timestamp: mustParseTime("2022-08-31T15:19:32.000Z"),
 			Message:   "Taylor Lee successfully logged in using the Google OAuth.",

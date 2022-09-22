@@ -22,7 +22,10 @@ func NewUsersClient(apiKey string, httpClient *http.Client) *UsersClient {
 	}
 }
 
-func (c *UsersClient) GetAuthenticatedUser(ctx context.Context, opts ...RequestOption) (GetAuthenticatedUserResponse, error) {
+func (c *UsersClient) GetAuthenticatedUser(
+	ctx context.Context,
+	opts ...RequestOption,
+) (GetAuthenticatedUserResponse, error) {
 	r, err := http.NewRequestWithContext(ctx, http.MethodGet, c.baseURL, nil)
 	if err != nil {
 		return GetAuthenticatedUserResponse{}, err
