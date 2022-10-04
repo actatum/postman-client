@@ -10,35 +10,35 @@
 
 ### API
 
-- [] POST /apis
-- [] GET /apis
-- [] GET /apis/:apiId
-- [] PUT /apis/:apiId
-- [] DELETE /apis/:apiId
-- [] POST /apis/versions
-- [] GET /apis/versions
-- [] GET /apis/:apiId/versions/:versionId
-- [] PUT /apis/:apiId/versions/:versionId
-- [] DELETE /apis/:apiId/versions/:versionId
-- [] POST /apis/versions/releases
-- [] GET /apis/versions/releases
-- [] GET /apis/:apiId/versions/:versionId/releases/:releaseId
-- [] PUT /apis/:apiId/versions/:versionId/releases/:releaseId
-- [] DELETE /apis/:apiId/versions/:versionId/releases/:releaseId
-- [] POST /apis/:apiId/versions/:versionId/schemas
-- [] GET /apis/:apiId/versions/:versionId/schemas/:schemaId
-- [] PUT /apis/:apiId/versions/:versionId/schemas/:schemaId
-- [] POST /apis/:apiId/versions/:versionId/schemas/:schemaId/collections
-- [] POST /apis/:apiId/versions/:versionId/relations
-- [] GET /apis/:apiId/versions/:versionId/relations
-- [] GET /apis/:apiId/versions/:versionId/test
-- [] GET /apis/:apiId/versions/:versionId/testsuite
-- [] GET /apis/:apiId/versions/:versionId/contracttest
-- [] GET /apis/:apiId/versions/:versionId/environment
-- [] GET /apis/:apiId/versions/:versionId/integrationtest
-- [] GET /apis/:apiId/versions/:versionId/documentation
-- [] GET /apis/:apiId/versions/:versionId/monitor
-- [] PUT /apis/:apiId/versions/:versionId/:relationType/:entityId/syncWithSchema
+- [ ] POST /apis
+- [ ] GET /apis
+- [ ] GET /apis/:apiId
+- [ ] PUT /apis/:apiId
+- [ ] DELETE /apis/:apiId
+- [ ] POST /apis/versions
+- [ ] GET /apis/versions
+- [ ] GET /apis/:apiId/versions/:versionId
+- [ ] PUT /apis/:apiId/versions/:versionId
+- [ ] DELETE /apis/:apiId/versions/:versionId
+- [ ] POST /apis/versions/releases
+- [ ] GET /apis/versions/releases
+- [ ] GET /apis/:apiId/versions/:versionId/releases/:releaseId
+- [ ] PUT /apis/:apiId/versions/:versionId/releases/:releaseId
+- [ ] DELETE /apis/:apiId/versions/:versionId/releases/:releaseId
+- [ ] POST /apis/:apiId/versions/:versionId/schemas
+- [ ] GET /apis/:apiId/versions/:versionId/schemas/:schemaId
+- [ ] PUT /apis/:apiId/versions/:versionId/schemas/:schemaId
+- [ ] POST /apis/:apiId/versions/:versionId/schemas/:schemaId/collections
+- [ ] POST /apis/:apiId/versions/:versionId/relations
+- [ ] GET /apis/:apiId/versions/:versionId/relations
+- [ ] GET /apis/:apiId/versions/:versionId/test
+- [ ] GET /apis/:apiId/versions/:versionId/testsuite
+- [ ] GET /apis/:apiId/versions/:versionId/contracttest
+- [ ] GET /apis/:apiId/versions/:versionId/environment
+- [ ] GET /apis/:apiId/versions/:versionId/integrationtest
+- [ ] GET /apis/:apiId/versions/:versionId/documentation
+- [ ] GET /apis/:apiId/versions/:versionId/monitor
+- [ ] PUT /apis/:apiId/versions/:versionId/:relationType/:entityId/syncWithSchema
 
 ### API Security
 
@@ -68,19 +68,19 @@
 
 ### Mocks
 
-- [] POST /mocks
-- [] GET /mocks
-- [] GET /mocks/:mockId
-- [] PUT /mocks/:mockId
-- [] DELETE /mocks/:mockId
-- [] POST /mocks/:mockId/server-responses
-- [] GET /mocks/:mockId/server-responses
-- [] GET /mocks/:mockId/server-responses/:serverResponseId
-- [] PUT /mocks/:mockId/server-respones/:serverResponseId
-- [] DELETE /mocks/:mockId/server-responses/:serverResponseId
-- [] POST /mocks/:mockId/publish
-- [] DELETE /mocks/:mockId/unpublish 
-- [] GET /mocks/:mockId/call-logs
+- [ ] POST /mocks
+- [ ] GET /mocks
+- [ ] GET /mocks/:mockId
+- [ ] PUT /mocks/:mockId
+- [ ] DELETE /mocks/:mockId
+- [ ] POST /mocks/:mockId/server-responses
+- [ ] GET /mocks/:mockId/server-responses
+- [ ] GET /mocks/:mockId/server-responses/:serverResponseId
+- [ ] PUT /mocks/:mockId/server-respones/:serverResponseId
+- [ ] DELETE /mocks/:mockId/server-responses/:serverResponseId
+- [ ] POST /mocks/:mockId/publish
+- [ ] DELETE /mocks/:mockId/unpublish 
+- [ ] GET /mocks/:mockId/call-logs
 
 ### Monitors
 
@@ -105,8 +105,8 @@
 
 ### Import
 
-- [] POST /import/openapi
-- [] POST /import/exported
+- [ ] POST /import/openapi
+- [ ] POST /import/exported
 
 ### Webhooks
 
@@ -114,17 +114,17 @@
 
 ### SCIM 2.0 - Identity
 
-- [] GET /scim/v2/ResourceTypes
-- [] GET /scim/v2/ServiceProviderConfig
-- [] POST /scim/v2/Users
-- [] GET /scim/v2/Users
-- [] GET /scim/v2/Users/:id
-- [] PUT /scim/v2/Users/:id
-- [] PATCH /scim/v2/Users/:id
-- [] POST /scim/v2/Groups
-- [] GET /scim/v2/Groups
-- [] GET /scim/v2/Groups/:id
-- [] PATCH /scim/v2/Group/:id
+- [ ] GET /scim/v2/ResourceTypes
+- [ ] GET /scim/v2/ServiceProviderConfig
+- [ ] POST /scim/v2/Users
+- [ ] GET /scim/v2/Users
+- [ ] GET /scim/v2/Users/:id
+- [ ] PUT /scim/v2/Users/:id
+- [ ] PATCH /scim/v2/Users/:id
+- [ ] POST /scim/v2/Groups
+- [ ] GET /scim/v2/Groups
+- [ ] GET /scim/v2/Groups/:id
+- [ ] PATCH /scim/v2/Group/:id
 
 ## Usage
 
