@@ -134,29 +134,25 @@ package main
 import (
 	"context"
 	"fmt"
-	
+
 	"github.com/actatum/postman-client"
 	"github.com/actatum/postman-client/webhooks"
 )
 
 func main() {
-	// Create a new client set.
 	cs := postman.NewClientSet("api-key")
-	// Get a handle to an individual client.
 	webhookClient := cs.Webhooks()
-	
-	// Make a request with handle for individual client.
 	webhook, err := webhookClient.Create(
 		context.Background(),
 		webhooks.Webhook{
-			Name: "Test Webhook",
+			Name:       "Test Webhook",
 			Collection: "collection-id",
-        },
+		},
 	)
 	if err != nil {
 		panic(err)
-    }
-	
+	}
+
 	fmt.Printf("%v\n", webhook)
 }
 ```
@@ -173,7 +169,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
-	
+
 	"github.com/actatum/postman-client/rest"
 )
 
@@ -182,13 +178,13 @@ func main() {
 	rc := rest.NewClient("api-key")
 	body := map[string]map[string]string{
 		"workspace": {
-			"name": "Test Workspace",
-			"type": "personal",
+			"name":        "Test Workspace",
+			"type":        "personal",
 			"description": "This is a test personal workspace.",
-        },
-    }
-	
-	// Create http request
+		},
+	}
+
+	// Create http request.
 	r, err := rc.NewRequest(
 		context.Background(),
 		http.MethodPost,
@@ -197,15 +193,15 @@ func main() {
 	)
 	if err != nil {
 		panic(err)
-    }
-	
-	// Do request and unmarshal into response object
+	}
+
+	// Do request and unmarshal into response object.
 	var response map[string]interface{}
 	err = rc.DoRequest(r, &response)
 	if err != nil {
 		panic(err)
-    }
-	
+	}
+
 	fmt.Printf("Response: %v\n", response)
 }
 ```
