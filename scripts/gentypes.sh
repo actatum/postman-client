@@ -1,1 +1,0 @@
-for FILE in schemas/*; do echo "generating types for $FILE" && gojsonschema -p gen/types -o gen/types/"${FILE/schemas/}".go "$FILE"; done
